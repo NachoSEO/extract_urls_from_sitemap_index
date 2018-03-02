@@ -9,6 +9,7 @@ def urls_sitemap_index(url_sitemap_index):
     sitemaps = xml_parsed.find_all("loc")
     for s in sitemaps:
         sitemap.append(s.text)
+    for s in sitemap:
         uis = requests.get(s)
         uis_parsed = BeautifulSoup(uis.content, "xml")
         urls_loc1 = uis_parsed.find_all("loc")

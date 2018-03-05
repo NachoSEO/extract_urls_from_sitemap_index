@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 def urls_sitemap_index(url_sitemap_index):
     sitemap = []
@@ -16,3 +17,8 @@ def urls_sitemap_index(url_sitemap_index):
         for u in urls_loc1:
             urls.append(u.text)
     return urls
+
+urls = urls_sitemap_index("URL HERE") # poner la URL dentro de las comillas
+
+df = pd.DataFrame({"urls":urls})
+df.to_csv("urls-sitemap.csv", sep="\t", encoding="utf-8")

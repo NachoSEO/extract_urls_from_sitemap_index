@@ -23,6 +23,6 @@ def extract_urls_from_sitemap(url_sitemap):
             urls.append(u.text)
     return urls
 
-urls = extract_urls_from_sitemap("https://www.ohlibro.com/sitemap/books/1") # poner la URL dentro de las comillas
+urls = extract_urls_from_sitemap("URL HERE")
 df = pd.DataFrame({"urls":urls})
 df.to_csv("urls-sitemap.csv", sep="\t", encoding="utf-8")
